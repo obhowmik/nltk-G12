@@ -1,0 +1,304 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      <div class="mermaid">
+    
+        classDiagram
+          class BlanklineTokenizer {
+          }
+          class CJKChars {
+            CJK_Compatibility_Forms : tuple
+            CJK_Compatibility_Ideographs : tuple
+            CJK_Radicals : tuple
+            Hangul_Jamo : tuple
+            Hangul_Syllables : tuple
+            Katakana_Hangul_Halfwidth : tuple
+            Phags_Pa : tuple
+            Supplementary_Ideographic_Plane : tuple
+            ranges : list
+          }
+          class CharTokenizer {
+            span_tokenize(s)
+            tokenize(s)
+          }
+          class LegalitySyllableTokenizer {
+            legal_frequency_threshold : float
+            legal_onsets : set
+            vowels : str
+            find_legal_onsets(words)
+            onset(word)
+            tokenize(token)
+          }
+          class LineTokenizer {
+            span_tokenize(s)
+            tokenize(s)
+          }
+          class MWETokenizer {
+            add_mwe(mwe)
+            tokenize(text)
+          }
+          class MacIntyreContractions {
+            CONTRACTIONS2 : list
+            CONTRACTIONS3 : list
+            CONTRACTIONS4 : list
+          }
+          class NISTTokenizer {
+            DASH_PRECEED_DIGIT : tuple
+            INTERNATIONAL_REGEXES : list
+            LANG_DEPENDENT_REGEXES : list
+            NONASCII : tuple
+            PERIOD_COMMA_FOLLOW : tuple
+            PERIOD_COMMA_PRECEED : tuple
+            PUNCT : tuple
+            PUNCT_1 : tuple
+            PUNCT_2 : tuple
+            STRIP_EOL_HYPHEN : tuple
+            STRIP_SKIP : tuple
+            SYMBOLS : tuple
+            number_regex
+            punct_regex
+            pup_number : str
+            pup_punct : str
+            pup_symbol : str
+            symbol_regex
+            international_tokenize(text, lowercase, split_non_ascii, return_str)
+            lang_independent_sub(text)
+            tokenize(text, lowercase, western_lang, return_str)
+          }
+          class NLTKWordTokenizer {
+            CONTRACTIONS2 : list
+            CONTRACTIONS3 : list
+            CONVERT_PARENTHESES : list
+            DOUBLE_DASHES : tuple
+            ENDING_QUOTES : list
+            PARENS_BRACKETS : tuple
+            PUNCTUATION : list
+            STARTING_QUOTES : list
+            span_tokenize(text: str) Iterator[Tuple[int, int]]
+            tokenize(text: str, convert_parentheses: bool, return_str: bool) List[str]
+          }
+          class PunktBaseClass {
+          }
+          class PunktLanguageVars {
+            internal_punctuation : str
+            re_boundary_realignment
+            sent_end_chars : tuple
+            period_context_re()
+            word_tokenize(s)
+          }
+          class PunktParameters {
+            abbrev_types : set
+            collocations : set
+            ortho_context : defaultdict
+            sent_starters : set
+            add_ortho_context(typ, flag)
+            clear_abbrevs()
+            clear_collocations()
+            clear_ortho_context()
+            clear_sent_starters()
+          }
+          class PunktSentenceTokenizer {
+            PUNCTUATION : tuple
+            debug_decisions(text: str) Iterator[Dict[str, Any]]
+            dump(tokens: Iterator[PunktToken]) None
+            sentences_from_text(text: str, realign_boundaries: bool) List[str]
+            sentences_from_text_legacy(text: str) Iterator[str]
+            sentences_from_tokens(tokens: Iterator[PunktToken]) Iterator[PunktToken]
+            span_tokenize(text: str, realign_boundaries: bool) Iterator[Tuple[int, int]]
+            text_contains_sentbreak(text: str) bool
+            tokenize(text: str, realign_boundaries: bool) List[str]
+            train(train_text, verbose)
+          }
+          class PunktToken {
+            first_case
+            first_lower
+            first_upper
+            is_alpha
+            is_ellipsis
+            is_initial
+            is_non_punct
+            is_number
+            period_final
+            tok
+            type
+            type_no_period
+            type_no_sentperiod
+          }
+          class PunktTokenizer {
+            load_lang(lang)
+            save_params()
+          }
+          class PunktTrainer {
+            ABBREV : float
+            ABBREV_BACKOFF : int
+            COLLOCATION : float
+            IGNORE_ABBREV_PENALTY : bool
+            INCLUDE_ABBREV_COLLOCS : bool
+            INCLUDE_ALL_COLLOCS : bool
+            MIN_COLLOC_FREQ : int
+            SENT_STARTER : int
+            finalize_training(verbose)
+            find_abbrev_types()
+            freq_threshold(ortho_thresh, type_thresh, colloc_thres, sentstart_thresh)
+            get_params()
+            train(text, verbose, finalize)
+            train_tokens(tokens, verbose, finalize)
+          }
+          class RegexpTokenizer {
+            span_tokenize(text)
+            tokenize(text)
+          }
+          class ReppTokenizer {
+            encoding : str
+            repp_dir
+            working_dir
+            find_repptokenizer(repp_dirname)
+            generate_repp_command(inputfilename)
+            parse_repp_outputs(repp_output)
+            tokenize(sentence)
+            tokenize_sents(sentences, keep_token_positions)
+          }
+          class SExprTokenizer {
+            tokenize(text)
+          }
+          class SpaceTokenizer {
+          }
+          class StanfordSegmenter {
+            java_options : str
+            default_config(lang)
+            segment(tokens)
+            segment_file(input_file_path)
+            segment_sents(sentences)
+            tokenize(s)
+          }
+          class StanfordTokenizer {
+            java_options : str
+            tokenize(s)
+          }
+          class StringTokenizer {
+            span_tokenize(s)
+            tokenize(s)
+          }
+          class SyllableTokenizer {
+            phoneme_map : dict
+            vowels
+            assign_values(token)
+            tokenize(token)
+            validate_syllables(syllable_list)
+          }
+          class TabTokenizer {
+          }
+          class TextTilingTokenizer {
+            tokenize(text)
+          }
+          class TokenSequence {
+          }
+          class TokenTableField {
+          }
+          class TokenizerI {
+            span_tokenize(s: str)* Iterator[Tuple[int, int]]
+            span_tokenize_sents(strings: List[str]) Iterator[List[Tuple[int, int]]]
+            tokenize(s: str)* List[str]
+            tokenize_sents(strings: List[str]) List[List[str]]
+          }
+          class ToktokTokenizer {
+            AMPERCENT : tuple
+            CLOSE_PUNCT : str
+            CLOSE_PUNCT_RE : tuple
+            COMMA_IN_NUM : tuple
+            CURRENCY_SYM : str
+            CURRENCY_SYM_RE : tuple
+            EN_EM_DASHES : tuple
+            FINAL_PERIOD_1 : tuple
+            FINAL_PERIOD_2 : tuple
+            FUNKY_PUNCT_1 : tuple
+            FUNKY_PUNCT_2 : tuple
+            LSTRIP : tuple
+            MULTI_COMMAS : tuple
+            MULTI_DASHES : tuple
+            MULTI_DOTS : tuple
+            NON_BREAKING : tuple
+            ONE_SPACE : tuple
+            OPEN_PUNCT : str
+            OPEN_PUNCT_RE : tuple
+            PIPE : tuple
+            PROB_SINGLE_QUOTES : tuple
+            RSTRIP : tuple
+            STUPID_QUOTES_1 : tuple
+            STUPID_QUOTES_2 : tuple
+            TAB : tuple
+            TOKTOK_REGEXES : list
+            URL_FOE_1 : tuple
+            URL_FOE_2 : tuple
+            URL_FOE_3 : tuple
+            URL_FOE_4 : tuple
+            tokenize(text, return_str)
+          }
+          class TreebankWordDetokenizer {
+            CONTRACTIONS2
+            CONTRACTIONS3
+            CONVERT_PARENTHESES : list
+            DOUBLE_DASHES : tuple
+            ENDING_QUOTES : list
+            PARENS_BRACKETS : list
+            PUNCTUATION : list
+            STARTING_QUOTES : list
+            detokenize(tokens: List[str], convert_parentheses: bool) str
+            tokenize(tokens: List[str], convert_parentheses: bool) str
+          }
+          class TreebankWordTokenizer {
+            CONTRACTIONS2 : list
+            CONTRACTIONS3 : list
+            CONVERT_PARENTHESES : list
+            DOUBLE_DASHES : tuple
+            ENDING_QUOTES : list
+            PARENS_BRACKETS : tuple
+            PUNCTUATION : list
+            STARTING_QUOTES : list
+            span_tokenize(text: str) Iterator[Tuple[int, int]]
+            tokenize(text: str, convert_parentheses: bool, return_str: bool) List[str]
+          }
+          class TweetTokenizer {
+            PHONE_WORD_RE
+            WORD_RE
+            match_phone_numbers : bool
+            preserve_case : bool
+            reduce_len : bool
+            strip_handles : bool
+            tokenize(text: str) List[str]
+          }
+          class WhitespaceTokenizer {
+          }
+          class WordPunctTokenizer {
+          }
+          StringTokenizer --|> TokenizerI
+          TweetTokenizer --|> TokenizerI
+          NLTKWordTokenizer --|> TokenizerI
+          LegalitySyllableTokenizer --|> TokenizerI
+          MWETokenizer --|> TokenizerI
+          NISTTokenizer --|> TokenizerI
+          PunktSentenceTokenizer --|> TokenizerI
+          PunktSentenceTokenizer --|> PunktBaseClass
+          PunktTokenizer --|> PunktSentenceTokenizer
+          PunktTrainer --|> PunktBaseClass
+          BlanklineTokenizer --|> RegexpTokenizer
+          RegexpTokenizer --|> TokenizerI
+          WhitespaceTokenizer --|> RegexpTokenizer
+          WordPunctTokenizer --|> RegexpTokenizer
+          ReppTokenizer --|> TokenizerI
+          SExprTokenizer --|> TokenizerI
+          CharTokenizer --|> StringTokenizer
+          LineTokenizer --|> TokenizerI
+          SpaceTokenizer --|> StringTokenizer
+          TabTokenizer --|> StringTokenizer
+          SyllableTokenizer --|> TokenizerI
+          StanfordTokenizer --|> TokenizerI
+          StanfordSegmenter --|> TokenizerI
+          TextTilingTokenizer --|> TokenizerI
+          ToktokTokenizer --|> TokenizerI
+          TreebankWordDetokenizer --|> TokenizerI
+          TreebankWordTokenizer --|> TokenizerI
+  
+       </div>
+  </body>
+</html>

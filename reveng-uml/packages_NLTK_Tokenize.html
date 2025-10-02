@@ -1,0 +1,86 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      <div class="mermaid">
+    
+        classDiagram
+          class tokenize {
+          }
+          class api {
+          }
+          class casual {
+          }
+          class destructive {
+          }
+          class legality_principle {
+          }
+          class mwe {
+          }
+          class nist {
+          }
+          class punkt {
+          }
+          class regexp {
+          }
+          class repp {
+          }
+          class sexpr {
+          }
+          class simple {
+          }
+          class sonority_sequencing {
+          }
+          class stanford {
+          }
+          class stanford_segmenter {
+          }
+          class texttiling {
+          }
+          class toktok {
+          }
+          class treebank {
+          }
+          class util {
+          }
+          tokenize --> casual
+          tokenize --> destructive
+          tokenize --> legality_principle
+          tokenize --> mwe
+          tokenize --> punkt
+          tokenize --> regexp
+          tokenize --> repp
+          tokenize --> sexpr
+          tokenize --> simple
+          tokenize --> sonority_sequencing
+          tokenize --> stanford_segmenter
+          tokenize --> texttiling
+          tokenize --> toktok
+          tokenize --> treebank
+          tokenize --> util
+          api --> util
+          casual --> api
+          destructive --> api
+          destructive --> util
+          legality_principle --> api
+          mwe --> api
+          nist --> api
+          nist --> util
+          punkt --> api
+          regexp --> api
+          regexp --> util
+          repp --> api
+          sexpr --> api
+          simple --> api
+          simple --> util
+          sonority_sequencing --> api
+          stanford --> api
+          stanford_segmenter --> api
+          texttiling --> api
+          toktok --> api
+          treebank --> api
+          treebank --> destructive
+          treebank --> util
+  
+       </div>
+  </body>
+</html>
